@@ -1,0 +1,466 @@
+body.totem-body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 18% 10%, rgba(255, 255, 255, 0.22), transparent 24%),
+    radial-gradient(circle at 88% 25%, rgba(0, 158, 255, 0.35), transparent 30%),
+    linear-gradient(135deg, #4900ff 0%, #d000a9 35%, #ff7600 72%, #8ecf00 100%);
+}
+
+.animated-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-orb {
+  position: absolute;
+  width: 42vw;
+  height: 42vw;
+  border-radius: 999px;
+  filter: blur(30px);
+  opacity: 0.4;
+  animation: floatOrb 11s ease-in-out infinite alternate;
+}
+
+.bg-orb.one {
+  top: 8%;
+  left: -12%;
+  background: #00b5ff;
+}
+
+.bg-orb.two {
+  right: -18%;
+  top: 28%;
+  background: #ffe500;
+  animation-delay: -3s;
+}
+
+.bg-orb.three {
+  left: 12%;
+  bottom: -22%;
+  background: #ff3cb8;
+  animation-delay: -6s;
+}
+
+@keyframes floatOrb {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(8vw, -4vh, 0) scale(1.16);
+  }
+}
+
+.totem-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: 126px 1fr 146px;
+  gap: 18px;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px 42px 20px;
+}
+
+.totem-header {
+  display: grid;
+  grid-template-columns: 220px 1fr 220px;
+  align-items: center;
+  min-height: 112px;
+  padding: 0 44px;
+  border-radius: 0 0 44px 44px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.totem-logo {
+  width: 162px;
+  height: auto;
+}
+
+.totem-logo:last-child {
+  justify-self: end;
+}
+
+.totem-clock {
+  justify-self: center;
+  font-size: clamp(58px, 8vw, 90px);
+  font-weight: 300;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.totem-date {
+  display: block;
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.totem-main {
+  display: grid;
+  grid-template-rows: 57% 43%;
+  gap: 18px;
+  min-height: 0;
+}
+
+.glass-panel {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.11));
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 34px 14px;
+}
+
+.panel-header h1,
+.panel-header h2 {
+  margin: 0;
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 2px;
+}
+
+.panel-header h2 {
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 17px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.legend span {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.schedule-scroll {
+  height: calc(100% - 126px);
+  margin: 0 28px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.34);
+  scrollbar-color: rgba(255, 255, 255, 0.65) rgba(255, 255, 255, 0.12);
+  scrollbar-width: thin;
+}
+
+.schedule-period {
+  margin-bottom: 16px;
+  border: 1px solid rgba(244, 123, 32, 0.9);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.schedule-period-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  background: var(--senac-orange);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: clamp(16px, 2.1vw, 28px);
+}
+
+.schedule-table th {
+  padding: 12px 14px;
+  background: #f47b20;
+  color: #ffffff;
+  font-weight: 900;
+  text-align: left;
+}
+
+.schedule-table td {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(244, 123, 32, 0.9);
+  color: #ffffff;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.schedule-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.col-status {
+  width: 62px;
+  text-align: center !important;
+}
+
+.col-time {
+  width: 145px;
+}
+
+.col-local {
+  width: 170px;
+}
+
+.col-teacher {
+  width: 210px;
+}
+
+.empty-state {
+  padding: 48px 28px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  opacity: 0.85;
+}
+
+.media-panel {
+  display: grid;
+  grid-template-rows: 1fr 74px;
+  min-height: 0;
+}
+
+.carousel-stage {
+  position: relative;
+  min-height: 0;
+  margin: 26px 34px 10px;
+  overflow: hidden;
+  border-radius: 34px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 34px;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-slide img,
+.carousel-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 26px;
+}
+
+.text-slide {
+  max-width: 86%;
+  text-align: center;
+}
+
+.text-slide h3 {
+  margin: 0 0 20px;
+  font-size: clamp(40px, 6vw, 82px);
+  line-height: 1;
+}
+
+.text-slide p {
+  margin: 0;
+  font-size: clamp(26px, 3.4vw, 42px);
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.carousel-footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 24px 22px;
+}
+
+.carousel-dot {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.35);
+}
+
+.carousel-dot.active {
+  width: 44px;
+  background: #ffffff;
+}
+
+.totem-footer {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 34px;
+  border-radius: 38px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.hours-card {
+  text-align: center;
+}
+
+.hours-card h3 {
+  margin: 0 0 8px;
+  font-size: clamp(20px, 3vw, 32px);
+  letter-spacing: 1px;
+}
+
+.hours-card p {
+  margin: 0;
+  white-space: pre-line;
+  font-size: clamp(17px, 2.3vw, 27px);
+  font-weight: 800;
+  line-height: 1.16;
+}
+
+.school-map-button {
+  justify-self: center;
+  min-width: 280px;
+  padding: 18px 34px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #2a2a34;
+  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+  font-size: clamp(21px, 3vw, 33px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.school-map-button:active {
+  transform: scale(0.96);
+}
+
+.map-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 46px;
+  background: rgba(0, 0, 0, 0.72);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 240ms ease, visibility 240ms ease;
+}
+
+.map-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.map-modal-content {
+  position: relative;
+  width: min(92vw, 1050px);
+  height: min(92vh, 1700px);
+  padding: 32px;
+  border-radius: 42px;
+  background: rgba(255,255,255,0.94);
+  transform: translateY(24px) scale(0.96);
+  transition: transform 260ms ease;
+}
+
+.map-modal.open .map-modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.map-modal h2 {
+  margin: 0 0 20px;
+  color: #252532;
+  font-size: 38px;
+  text-align: center;
+}
+
+.map-modal img {
+  width: 100%;
+  height: calc(100% - 76px);
+  object-fit: contain;
+}
+
+.map-close-button {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 50%;
+  background: #1f1f29;
+  color: #ffffff;
+  font-size: 34px;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .totem-shell {
+    padding: 8px 16px 16px;
+    grid-template-rows: 96px 1fr 132px;
+  }
+
+  .totem-header {
+    grid-template-columns: 130px 1fr 130px;
+    padding: 0 20px;
+  }
+
+  .totem-logo {
+    width: 118px;
+  }
+
+  .panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .legend {
+    font-size: 14px;
+  }
+
+  .col-teacher {
+    width: 160px;
+  }
+
+  .totem-footer {
+    grid-template-columns: 1fr;
+  }
+}

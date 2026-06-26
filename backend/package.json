@@ -1,0 +1,28 @@
+{
+  "name": "totem-escolar-senac",
+  "version": "2.0.0",
+  "description": "Sistema web para totem escolar com mapa de salas, mídia institucional e retirada de chaves por QR Code único.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "keywords": [
+    "totem",
+    "escola",
+    "node",
+    "express",
+    "xlsx",
+    "qrcode"
+  ],
+  "author": "Projeto educacional",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "qrcode": "^1.5.4",
+    "xlsx": "^0.18.5"
+  }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retirada de Chave</title>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/key-pickup.css" />
+</head>
+<body class="key-body">
+  <main class="key-page">
+    <header class="key-header">
+      <img src="/assets/images/senac-logo-white.svg" alt="Senac" />
+      <h1>Retirada de Chave</h1>
+      <p id="currentPeriodLabel">Carregando aulas do período atual...</p>
+    </header>
+
+    <div class="period-filter" aria-label="Filtros de período para teste">
+      <button type="button" data-period="" class="active">Atual</button>
+      <button type="button" data-period="manha">Manhã</button>
+      <button type="button" data-period="tarde">Tarde</button>
+      <button type="button" data-period="noite">Noite</button>
+    </div>
+
+    <div id="keyFeedback" class="key-feedback"></div>
+    <section id="classList" class="class-list"></section>
+  </main>
+
+  <script src="/js/api/keyPickupApi.js"></script>
+  <script src="/js/pages/retiradaChavePage.js"></script>
+</body>
+</html>

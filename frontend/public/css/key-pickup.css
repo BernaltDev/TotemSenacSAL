@@ -1,0 +1,115 @@
+body.key-body {
+  min-height: 100vh;
+  padding: 22px;
+  background:
+    radial-gradient(circle at 10% 4%, rgba(255,255,255,0.2), transparent 30%),
+    linear-gradient(135deg, #4200db, #c100a7 45%, #f47b20 100%);
+  color: #ffffff;
+}
+
+.key-page {
+  width: min(860px, 100%);
+  margin: 0 auto;
+}
+
+.key-header {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.key-header img {
+  width: 150px;
+}
+
+.key-header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.key-header p {
+  margin: 0;
+  font-weight: 800;
+  opacity: 0.86;
+}
+
+.period-filter {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.period-filter button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.2);
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.period-filter button.active {
+  background: #ffffff;
+  color: #252532;
+}
+
+.class-list {
+  display: grid;
+  gap: 14px;
+}
+
+.class-card {
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+  backdrop-filter: blur(16px);
+}
+
+.class-card.started {
+  opacity: 0.72;
+}
+
+.class-card h2 {
+  margin: 0 0 8px;
+  font-size: 23px;
+}
+
+.class-card p {
+  margin: 4px 0;
+  font-weight: 700;
+}
+
+.confirm-button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px;
+  border: 0;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #202234;
+  font-weight: 900;
+}
+
+.confirm-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.64;
+}
+
+.key-feedback {
+  min-height: 26px;
+  margin: 16px 0;
+  text-align: center;
+  font-weight: 900;
+}
+
+.key-feedback.success {
+  color: #b9ffd6;
+}
+
+.key-feedback.error {
+  color: #ffe1e1;
+}

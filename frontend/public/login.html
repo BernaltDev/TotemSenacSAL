@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Totem Escolar</title>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/login.css" />
+</head>
+<body class="login-body">
+  <main class="login-card">
+    <img src="/assets/images/senac-logo-white.svg" alt="Senac" />
+    <h1>Painel Administrativo</h1>
+    <p>Acesse para importar o mapa de salas e atualizar conteúdos do totem.</p>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" value="admin@escola.com" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" value="admin123" required />
+      </div>
+
+      <button class="primary-button" type="submit">Entrar</button>
+      <div id="loginFeedback" class="login-feedback"></div>
+    </form>
+  </main>
+
+  <script src="/js/api/apiClient.js"></script>
+  <script src="/js/api/authApi.js"></script>
+  <script src="/js/pages/loginPage.js"></script>
+</body>
+</html>

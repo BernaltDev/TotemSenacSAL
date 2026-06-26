@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Totem Escolar</title>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/totem.css" />
+</head>
+<body class="totem-body">
+  <div class="animated-background" aria-hidden="true">
+    <span class="bg-orb one"></span>
+    <span class="bg-orb two"></span>
+    <span class="bg-orb three"></span>
+  </div>
+
+  <main class="totem-shell">
+    <header class="totem-header">
+      <img class="totem-logo" src="/assets/images/senac-logo-white.svg" alt="Senac" />
+      <div>
+        <div id="totemClock" class="totem-clock">--:--:--</div>
+        <span id="totemDate" class="totem-date"></span>
+      </div>
+      <img class="totem-logo" src="/assets/images/senac-logo-white.svg" alt="Senac" />
+    </header>
+
+    <section class="totem-main">
+      <section class="glass-panel schedule-panel" aria-labelledby="scheduleTitle">
+        <div class="panel-header">
+          <h1 id="scheduleTitle">ENCONTRE SUA SALA AQUI</h1>
+          <div class="legend" aria-label="Legenda de status">
+            <span><i class="status-dot pending"></i> Aguardando chave</span>
+            <span><i class="status-dot started"></i> Aula em andamento</span>
+          </div>
+        </div>
+        <div id="scheduleScroll" class="schedule-scroll">
+          <div class="empty-state">Carregando mapa de salas...</div>
+        </div>
+      </section>
+
+      <section class="glass-panel media-panel" aria-labelledby="mediaTitle">
+        <div id="carouselStage" class="carousel-stage">
+          <div class="carousel-slide active">
+            <div class="text-slide">
+              <h3>Bem-vindo ao Senac</h3>
+              <p>Confira o mapa de salas, avisos e eventos da unidade.</p>
+            </div>
+          </div>
+        </div>
+        <div id="carouselDots" class="carousel-footer"></div>
+      </section>
+    </section>
+
+    <footer class="totem-footer">
+      <div class="hours-card">
+        <h3 id="secretaryTitle">SECRETARIA</h3>
+        <p id="secretaryHours">Segunda a Sexta<br />08h às 21h</p>
+      </div>
+
+      <button id="openMapButton" class="school-map-button" type="button">
+        MAPA DA ESCOLA
+      </button>
+
+      <div class="hours-card">
+        <h3 id="libraryTitle">BIBLIOTECA</h3>
+        <p id="libraryHours">Segunda a Sexta<br />08h às 22h</p>
+      </div>
+    </footer>
+  </main>
+
+  <section id="schoolMapModal" class="map-modal" aria-hidden="true">
+    <div class="map-modal-content">
+      <button id="closeMapButton" class="map-close-button" type="button" aria-label="Fechar mapa">×</button>
+      <h2>Mapa da Escola</h2>
+      <img id="schoolMapImage" src="/assets/images/school-map-placeholder.svg" alt="Mapa da escola" />
+    </div>
+  </section>
+
+  <script src="/js/api/totemApi.js"></script>
+  <script src="/js/utils/dateUtils.js"></script>
+  <script src="/js/pages/totemPage.js"></script>
+</body>
+</html>

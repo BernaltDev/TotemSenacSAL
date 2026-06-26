@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Totem Escolar</title>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="dashboard-brand">
+        <img src="/assets/images/senac-logo-white.svg" alt="Senac" />
+        <strong>Totem Escolar</strong>
+      </div>
+
+      <div class="dashboard-user">
+        <strong id="userName">Carregando...</strong>
+        <p>Ambiente restrito</p>
+      </div>
+
+      <nav aria-label="Navegação do painel">
+        <button class="nav-button active" data-section="import">Importar mapa</button>
+        <button class="nav-button" data-section="schedules">Mapa importado</button>
+        <button class="nav-button" data-section="notices">Avisos</button>
+        <button class="nav-button" data-section="news">Notícias</button>
+        <button class="nav-button" data-section="events">Eventos</button>
+        <button class="nav-button" data-section="media">Mídias</button>
+        <button class="nav-button" data-section="settings">Configurações</button>
+      </nav>
+
+      <button id="logoutButton" class="logout-button" type="button">Sair</button>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div>
+          <h1 id="sectionTitle">Importar mapa</h1>
+          <span>Gerencie o conteúdo exibido no totem.</span>
+        </div>
+        <div>
+          <a href="/" target="_blank">Abrir totem</a> ·
+          <a href="/retirada-chave.html" target="_blank">Página do QR</a>
+        </div>
+      </header>
+
+      <section id="section-import" class="dashboard-section active">
+        <div class="card-grid">
+          <div class="card">
+            <h2>Importar planilha de mapa de salas</h2>
+            <p class="notice-box">
+              Use a planilha com seções <strong>MANHÃ</strong>, <strong>TARDE</strong> e <strong>NOITE</strong>.
+              Dentro de cada seção, o sistema espera as colunas:
+              <strong>Turma</strong>, <strong>Horário</strong>, <strong>Local</strong> e <strong>Docente</strong>.
+            </p>
+
+            <form id="importForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="importDate">Data do mapa</label>
+                  <input id="importDate" name="date" type="date" required />
+                </div>
+
+                <div class="field">
+                  <label for="importMode">Modo de importação</label>
+                  <select id="importMode" name="mode">
+                    <option value="replace">Substituir o mapa da data</option>
+                    <option value="append">Adicionar à data atual</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="spreadsheet">Planilha Excel</label>
+                  <input id="spreadsheet" name="spreadsheet" type="file" accept=".xlsx,.xls,.csv" required />
+                </div>
+              </div>
+
+              <div class="action-row">
+                <button class="button primary" type="submit">Importar planilha</button>
+              </div>
+
+              <div id="importFeedback" class="feedback"></div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>QR Code único para docentes</h2>
+            <div class="qr-card">
+              <img id="teacherQrImage" alt="QR Code para retirada de chave" />
+              <div>
+                <p>
+                  Imprima este QR Code e deixe-o disponível para os docentes.
+                  Ele abre a página pública onde o professor seleciona a aula/sala do período atual e confirma a retirada da chave.
+                </p>
+                <p><strong>Link:</strong> <span id="teacherQrUrl">Carregando...</span></p>
+                <a id="teacherQrLink" class="button orange" href="/retirada-chave.html" target="_blank">Abrir página do QR</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-schedules" class="dashboard-section">
+        <div class="card">
+          <h2>Mapa importado</h2>
+
+          <div class="action-row">
+            <label class="field">
+              <span>Data</span>
+              <input id="scheduleDate" type="date" />
+            </label>
+
+            <label class="field">
+              <span>Período</span>
+              <select id="schedulePeriod">
+                <option value="">Todos</option>
+                <option value="manha">Manhã</option>
+                <option value="tarde">Tarde</option>
+                <option value="noite">Noite</option>
+              </select>
+            </label>
+
+            <button id="loadSchedulesButton" class="button primary" type="button">Carregar</button>
+            <button id="resetStatusesButton" class="button danger" type="button">Voltar status para vermelho</button>
+          </div>
+
+          <div id="schedulesFeedback" class="feedback"></div>
+          <div id="schedulesTableContainer" class="table-wrapper"></div>
+        </div>
+      </section>
+
+      <section id="section-notices" class="dashboard-section">
+        <div class="card" data-content-type="notices">
+          <h2>Avisos</h2>
+          <div data-content-form></div>
+          <div data-content-list class="table-wrapper"></div>
+        </div>
+      </section>
+
+      <section id="section-news" class="dashboard-section">
+        <div class="card" data-content-type="news">
+          <h2>Notícias</h2>
+          <div data-content-form></div>
+          <div data-content-list class="table-wrapper"></div>
+        </div>
+      </section>
+
+      <section id="section-events" class="dashboard-section">
+        <div class="card" data-content-type="events">
+          <h2>Eventos</h2>
+          <div data-content-form></div>
+          <div data-content-list class="table-wrapper"></div>
+        </div>
+      </section>
+
+      <section id="section-media" class="dashboard-section">
+        <div class="card">
+          <h2>Mídias do carrossel</h2>
+
+          <form id="mediaForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="mediaTitle">Título</label>
+                <input id="mediaTitle" name="title" placeholder="Ex.: Semana de Tecnologia" required />
+              </div>
+
+              <div class="field">
+                <label for="mediaOrder">Ordem</label>
+                <input id="mediaOrder" name="displayOrder" type="number" value="1" min="1" />
+              </div>
+
+              <div class="field">
+                <label for="mediaDuration">Tempo em segundos</label>
+                <input id="mediaDuration" name="durationSeconds" type="number" value="8" min="3" />
+              </div>
+
+              <div class="field">
+                <label for="mediaFile">Imagem ou vídeo</label>
+                <input id="mediaFile" name="file" type="file" accept="image/*,video/*" />
+              </div>
+
+              <div class="field full">
+                <label for="mediaDescription">Texto ou descrição</label>
+                <textarea id="mediaDescription" name="description" placeholder="Também pode usar emojis 😊"></textarea>
+              </div>
+            </div>
+
+            <div class="action-row">
+              <button class="button primary" type="submit">Adicionar mídia</button>
+            </div>
+
+            <div id="mediaFeedback" class="feedback"></div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Mídias cadastradas</h2>
+          <div id="mediaList" class="media-list"></div>
+        </div>
+      </section>
+
+      <section id="section-settings" class="dashboard-section">
+        <div class="card-grid">
+          <div class="card">
+            <h2>Configurações visuais e horários</h2>
+
+            <form id="settingsForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="unitName">Nome da unidade</label>
+                  <input id="unitName" name="unitName" />
+                </div>
+
+                <div class="field">
+                  <label for="publicTitle">Título do totem</label>
+                  <input id="publicTitle" name="publicTitle" />
+                </div>
+
+                <div class="field">
+                  <label for="carouselIntervalMs">Intervalo do carrossel em ms</label>
+                  <input id="carouselIntervalMs" name="carouselIntervalMs" type="number" min="3000" />
+                </div>
+
+                <div class="field">
+                  <label for="secretaryTitleSetting">Título secretaria</label>
+                  <input id="secretaryTitleSetting" name="secretaryTitle" />
+                </div>
+
+                <div class="field full">
+                  <label for="secretaryHoursSetting">Horário secretaria</label>
+                  <textarea id="secretaryHoursSetting" name="secretaryHours"></textarea>
+                </div>
+
+                <div class="field">
+                  <label for="libraryTitleSetting">Título biblioteca</label>
+                  <input id="libraryTitleSetting" name="libraryTitle" />
+                </div>
+
+                <div class="field full">
+                  <label for="libraryHoursSetting">Horário biblioteca</label>
+                  <textarea id="libraryHoursSetting" name="libraryHours"></textarea>
+                </div>
+              </div>
+
+              <div class="action-row">
+                <button class="button primary" type="submit">Salvar configurações</button>
+              </div>
+
+              <div id="settingsFeedback" class="feedback"></div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Imagem do mapa da escola</h2>
+            <form id="schoolMapForm">
+              <div class="field">
+                <label for="schoolMap">Enviar imagem do mapa</label>
+                <input id="schoolMap" name="schoolMap" type="file" accept="image/*,.svg" required />
+              </div>
+
+              <div class="action-row">
+                <button class="button orange" type="submit">Atualizar mapa da escola</button>
+              </div>
+
+              <div id="schoolMapFeedback" class="feedback"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/api/apiClient.js"></script>
+  <script src="/js/api/authApi.js"></script>
+  <script src="/js/api/dashboardApi.js"></script>
+  <script src="/js/utils/dateUtils.js"></script>
+  <script src="/js/pages/dashboardPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+:root {
+  --senac-blue: #0667b1;
+  --senac-orange: #f47b20;
+  --surface: rgba(255, 255, 255, 0.18);
+  --surface-strong: rgba(255, 255, 255, 0.28);
+  --text: #ffffff;
+  --dark: #1c1c25;
+  --muted: #f2f2f2;
+  --danger: #ff3b30;
+  --success: #25c266;
+  --warning: #ffcc00;
+  --radius-xl: 44px;
+  --radius-lg: 28px;
+  --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.text-muted {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.status-dot {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0 0 18px currentColor;
+}
+
+.status-dot.pending {
+  color: var(--danger);
+  background: var(--danger);
+}
+
+.status-dot.started {
+  color: var(--success);
+  background: var(--success);
+}

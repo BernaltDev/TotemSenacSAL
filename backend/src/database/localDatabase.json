@@ -1,0 +1,157 @@
+{
+  "users": [
+    {
+      "id": "user_admin",
+      "name": "Administrador",
+      "email": "admin@escola.com",
+      "password": "admin123",
+      "role": "admin",
+      "isActive": true
+    }
+  ],
+  "sessions": [
+    {
+      "token": "a23bb9dd562012f0bd3e29d374d1bde8f881a6ddbf3dbd7100ba19664ea9d52e",
+      "userId": "user_admin",
+      "createdAt": "2026-06-26T18:11:36.129Z"
+    }
+  ],
+  "schedules": [
+    {
+      "id": "schedule_sample_001",
+      "date": "2026-06-26",
+      "period": "manha",
+      "periodLabel": "MANHÃ",
+      "turma": "Técnico em Estética",
+      "horario": "08:00 às 12:00",
+      "startTime": "08:00",
+      "endTime": "12:00",
+      "local": "Sala de aula 2",
+      "docente": "Taisa",
+      "statusChave": "started",
+      "retiradaConfirmadaEm": "2026-06-26T18:14:32.374Z",
+      "createdAt": "2026-06-26T10:00:00.000Z",
+      "updatedAt": "2026-06-26T18:14:32.374Z"
+    },
+    {
+      "id": "schedule_sample_002",
+      "date": "2026-06-26",
+      "period": "manha",
+      "periodLabel": "MANHÃ",
+      "turma": "Aprendizagem 8.25",
+      "horario": "08:00 às 12:00",
+      "startTime": "08:00",
+      "endTime": "12:00",
+      "local": "Sala de aula 3",
+      "docente": "Lucas",
+      "statusChave": "pending",
+      "retiradaConfirmadaEm": null,
+      "createdAt": "2026-06-26T10:00:00.000Z",
+      "updatedAt": "2026-06-26T18:12:22.392Z"
+    },
+    {
+      "id": "schedule_sample_003",
+      "date": "2026-06-26",
+      "period": "noite",
+      "periodLabel": "NOITE",
+      "turma": "Desenvolvimento de Sites com HTML e CSS",
+      "horario": "19:00 às 22:00",
+      "startTime": "19:00",
+      "endTime": "22:00",
+      "local": "Laboratório de software 9",
+      "docente": "Victor Mansolelli",
+      "statusChave": "started",
+      "retiradaConfirmadaEm": "2026-06-26T18:12:54.990Z",
+      "createdAt": "2026-06-26T10:00:00.000Z",
+      "updatedAt": "2026-06-26T18:12:54.990Z"
+    }
+  ],
+  "contents": {
+    "notices": [
+      {
+        "id": "notice_sample_001",
+        "title": "📌 Atendimento ao aluno",
+        "description": "Procure a secretaria para regularizar documentos pendentes.",
+        "priority": "high",
+        "imageUrl": "",
+        "isActive": true,
+        "createdAt": "2026-06-26T10:00:00.000Z",
+        "updatedAt": "2026-06-26T10:00:00.000Z"
+      }
+    ],
+    "news": [
+      {
+        "id": "news_sample_001",
+        "title": "Vitrine de Negócios Criativos",
+        "description": "Acompanhe as novidades, projetos e ações da unidade.",
+        "imageUrl": "",
+        "isActive": true,
+        "createdAt": "2026-06-26T10:00:00.000Z",
+        "updatedAt": "2026-06-26T10:00:00.000Z"
+      }
+    ],
+    "events": [
+      {
+        "id": "event_sample_001",
+        "title": "Feira de Profissões",
+        "description": "Evento com atividades especiais para os alunos.",
+        "eventDate": "2026-06-28",
+        "imageUrl": "",
+        "isActive": true,
+        "createdAt": "2026-06-26T10:00:00.000Z",
+        "updatedAt": "2026-06-26T10:00:00.000Z"
+      },
+      {
+        "id": "events_17da0226-dc0c-43c6-9cbf-a48009105d83",
+        "title": "Semana Geek 👾",
+        "description": "EVENTO FODAAAA",
+        "imageUrl": "",
+        "isActive": false,
+        "createdAt": "2026-06-26T18:16:27.129Z",
+        "updatedAt": "2026-06-26T18:16:27.129Z",
+        "eventDate": "2026-07-16"
+      }
+    ]
+  },
+  "media": [
+    {
+      "id": "media_text_001",
+      "title": "Bem-vindo ao Senac",
+      "description": "Encontre sua sala, acompanhe avisos e confira os eventos da unidade.",
+      "type": "text",
+      "url": "",
+      "durationSeconds": 8,
+      "displayOrder": 1,
+      "isActive": true,
+      "createdAt": "2026-06-26T10:00:00.000Z",
+      "updatedAt": "2026-06-26T10:00:00.000Z"
+    }
+  ],
+  "settings": {
+    "unitName": "Senac",
+    "publicTitle": "ENCONTRE SUA SALA AQUI",
+    "carouselIntervalMs": 8000,
+    "schoolMapUrl": "/assets/images/school-map-placeholder.svg",
+    "secretaryTitle": "SECRETARIA",
+    "secretaryHours": "Segunda a Sexta\\n08h às 21h\\nSábado\\n08h às 12h",
+    "libraryTitle": "BIBLIOTECA",
+    "libraryHours": "Segunda a Sexta\\n08h às 22h\\nSábado\\n08h às 12h",
+    "periods": {
+      "manha": {
+        "label": "MANHÃ",
+        "start": "06:00",
+        "end": "12:59"
+      },
+      "tarde": {
+        "label": "TARDE",
+        "start": "13:00",
+        "end": "18:29"
+      },
+      "noite": {
+        "label": "NOITE",
+        "start": "18:30",
+        "end": "23:59"
+      }
+    }
+  }
+}
